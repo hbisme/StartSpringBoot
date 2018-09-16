@@ -1,2 +1,8 @@
 server:
   port: 8088
+logging:
+  path: logback.xml
+  level:
+   com: warn  # 这个好像是全局的级别, 在logback.xml 设置了日志级别,更具体.
+
+
