@@ -1,9 +1,21 @@
+
+
 server:
   port: 8088
 logging:
   path: logback.xml
   level:
       com.hb.start_boot.dao: warn
+
+url:
+  orderUrl: http://hb.com/order   # 自定义的配置,用于在controller中获取
+  userUrl: http://hb.com/user
+  shopUrl: http://hb.com/shop
+
+spring:
+  profiles:
+    active: dev  # 指定配置文件用哪个,相同配置项会覆盖本文件.
+
 
 
 
