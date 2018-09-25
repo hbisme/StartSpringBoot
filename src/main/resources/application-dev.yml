@@ -1,2 +1,66 @@
 server:
   port: 8081
+
+datasource:
+  url: rm-bp188fb70hknd9gi2o.mysql.rds.aliyuncs.com:3306/testdb
+
+
+url:
+  orderUrl: http://hb_dev.com/order   # 自定义的配置,用于在controller中获取
+  userUrl: http://hb_dev.com/user
+  shopUrl: http://hb_dev.com/shop
+
+
+logging:
+  level:
+    root: Info
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://${datasource.url}?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
+    username: devuser
+    password: Devuser123
+    hikari:
+      maximum-pool-size: 10
+      max-lifetime: 1770000
+
+  mybatis:
+    #指定别名设置的包为所有的entity
+    type-aliases-package: com.hb.start_boot.entity
+    configuration:
+      map-underscore-to-camel-case: true # 驼峰命名规范
+    mapper-locations: # mapper映射文件位置
+      - classpath:mapper/*.xml
+
+  jpa:
+    database: mysql
+    show-sql: true
+
+
+  redis:
+    database: 5
+    host: 192.168.11.29
+    prot: 26001
+    password: wIvJt@_redis
+    timeout: 5000
+    jedis:
+      pool:
+        # 连接池中的最大空闲连接，默认值是8。
+        max-idle: 500
+        # 连接池中的最小空闲连接，默认值是0。
+        min-idle: 50
+        # 如果赋值为-1，则表示不限制；如果pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted(耗尽)
+        max-active: 1000
+        # 等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。如果超过等待时间，则直接抛出JedisConnectionException
+        max-wait: 2000
+
+#  activemq:
+#    broker-url: tcp://localhost:61616
+#    in-memory: true
+#    pool:
+#      # 如果此处设置为true，需要添加activemq-pool的依赖包，否则会自动配置失败，无法注入JmsMessagingTemplate
+#      enabled: false
+
+
+

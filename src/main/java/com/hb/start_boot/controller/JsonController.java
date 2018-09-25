@@ -1,6 +1,6 @@
 package com.hb.start_boot.controller;
 
-import com.hb.start_boot.dao.User;
+import com.hb.start_boot.entity.User;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

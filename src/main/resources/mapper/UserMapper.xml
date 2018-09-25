@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hb.start_boot.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="com.hb.start_boot.entity.User">
+
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="user_name" jdbcType="VARCHAR" property="username" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+    </resultMap>
+
+    <select id="getUserByName" resultType="User" parameterType="String">
+        select * from user where user_name = #{username}
+    </select>
+</mapper>
+
+
+    <!--<?xml version="1.0" encoding="UTF-8"?>-->
+    <!--<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">-->
+
+    <!--&lt;!&ndash;namespace 指定对应的Mapper&ndash;&gt;-->
+    <!--<mapper namespace="com.hb.start_boot.dao.UserMapper">-->
+
+    <!--&lt;!&ndash;resultMap 中 指定对应的实体类,在内部指定表的字段和实体的属性相对应&ndash;&gt;-->
+    <!--<resultMap id="BaseResultMap" type="com.hb.start_boot.entity.User">-->
+    <!--<id column="id" jdbcType="BIGINT" property="id" />-->
+    <!--<result column="user_name" jdbcType="VARCHAR" property="userName"/>-->
+    <!--<result column="password" jdbcType="VARCHAR" property="password" />-->
+    <!--</resultMap>-->
+
+    <!--&lt;!&ndash;这个里的id 和 Mapper类中接口方法的名字相对应&ndash;&gt;-->
+    <!--<select id="getUserByName" resultType="com.hb.start_boot.entity.User" parameterType="String">-->
+    <!--select * from user where user_name = #{userName}-->
+    <!--</select>-->
+
+    <!--</mapper>-->

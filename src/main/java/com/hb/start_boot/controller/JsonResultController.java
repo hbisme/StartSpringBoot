@@ -4,8 +4,8 @@ package com.hb.start_boot.controller;
 * 返回值的封装类型,带上了code状态,和msg返回说明
 * */
 
-import com.hb.start_boot.dao.JsonResult;
-import com.hb.start_boot.dao.User;
+import com.hb.start_boot.entity.JsonResult;
+import com.hb.start_boot.entity.User;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;

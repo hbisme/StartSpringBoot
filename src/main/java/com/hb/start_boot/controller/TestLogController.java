@@ -5,7 +5,7 @@ package com.hb.start_boot.controller;
 *
 * */
 
-import com.hb.start_boot.dao.User;
+import com.hb.start_boot.entity.User;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/log")
-public class TestController {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TestController.class);
+public class TestLogController {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TestLogController.class);
 
     @RequestMapping("/user")
     public User getUser(){

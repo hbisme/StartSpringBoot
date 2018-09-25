@@ -1,4 +1,4 @@
-package com.hb.start_boot.dao;
+package com.hb.start_boot.entity;
 
 public class JsonResult<T> {
     private T data;

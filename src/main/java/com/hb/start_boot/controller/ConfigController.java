@@ -2,9 +2,13 @@ package com.hb.start_boot.controller;
 
 import com.hb.start_boot.configure.MicroServiceUrl;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,5 +39,18 @@ public class ConfigController {
 
         return "success";
     }
+
+    /*
+    *  另外一种获取配置的方法,使用注入的Environment
+    * */
+    @Autowired
+    Environment env;
+    @GetMapping("/environment")
+    public String getShopUrl(){
+        String shopUrl = env.getProperty("url.shopUrl", String.class);
+        LOGGER.info("另外一种获取 shop接口: {}", shopUrl );
+        return shopUrl;
+    }
+
 
 }
